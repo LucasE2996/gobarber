@@ -9,8 +9,6 @@ class FileController {
             path,
         });
 
-        console.log(file);
-
         return res.json({ file });
     }
 }
