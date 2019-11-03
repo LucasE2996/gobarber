@@ -1,3 +1,39 @@
-# Go Barber - NodeJS concepts of a real project
+<h1 align="center">Welcome to GoBarber 💈</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://twitter.com/lucashtwt" target="_blank">
+    <img alt="Twitter: lucashtwt" src="https://img.shields.io/twitter/follow/lucashtwt.svg?style=social" />
+  </a>
+</p>
 
-## All intructions of how to reproduce this project should be here or in a note
+> This project is a barber calendar scheduler.
+
+## Install
+
+```sh
+yarn install
+```
+
+## Usage
+
+```sh
+yarn start
+```
+
+## Author
+
+👤 **Lucas Rosa**
+
+* Website: https://codepen.io/Lucas-Rosa/
+* Twitter: [@lucashtwt](https://twitter.com/lucashtwt)
+* Github: [@LucasE2996](https://github.com/LucasE2996)
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
