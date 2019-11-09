@@ -1,8 +1,10 @@
 import * as Yup from 'yup';
-import { startOfHour, parseISO, isBefore } from 'date-fns';
+import { startOfHour, parseISO, isBefore, format } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import User from '../models/User';
 import File from '../models/File';
 import Appointment from '../models/Appointment';
+import Notification from '../schemas/Notification';
 
 class AppoitmentController {
     async index(req, res) {
@@ -67,8 +69,6 @@ class AppoitmentController {
             },
         });
 
-        console.log(checkAvailability);
-
         if (checkAvailability) {
             return res.status(400).json({ error: 'Already have one appointment with this date' });
         }
@@ -77,6 +77,16 @@ class AppoitmentController {
             user_id: req.userId,
             provider_id,
             date,
+        });
+
+        const user = User.findByPk(req.userId);
+        const formattedDate = format(date, "'dia' dd 'de' MMMM', as' H:mm'h'", {
+            locale: pt,
+        });
+
+        await Notification.create({
+            content: `Novo agendamendo de ${user.name} para dia ${formattedDate}`,
+            user: provider_id,
         });
 
         return res.json(appointment);
