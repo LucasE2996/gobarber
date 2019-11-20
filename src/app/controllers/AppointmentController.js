@@ -79,8 +79,13 @@ class AppoitmentController {
             date,
         });
 
-        const user = User.findByPk(req.userId);
-        const formattedDate = format(date, "'dia' dd 'de' MMMM', as' H:mm'h'", {
+        const user = await User.findByPk(req.userId);
+
+        if (user.id === provider_id) {
+            return res.json({ error: 'Provider cannot create appoitment to himself!' });
+        }
+
+        const formattedDate = format(parseISO(date), "'dia' dd 'de' MMMM', as' H:mm'h'", {
             locale: pt,
         });
 
