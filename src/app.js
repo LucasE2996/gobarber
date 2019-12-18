@@ -15,10 +15,7 @@ class App {
     middlewares() {
         this.server.use(express.json());
         // expose files path to return static files like images
-        this.server.use(
-            '/files',
-            express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
-        );
+        this.server.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')));
     }
 
     routes() {
