@@ -25,7 +25,7 @@ class DataBase {
 
     mongo() {
         // there is no user/password so the url has only the host, port and db name
-        this.mongoConnection = mongoose.connect('mongodb://localhost:27017/gobarber', {
+        this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
             useFindAndModify: true,
         });
