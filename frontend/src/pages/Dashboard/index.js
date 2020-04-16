@@ -1,13 +1,15 @@
 import React from 'react';
+import api from '~/services/api';
 
-import Container from '../../components/Container';
 import { Title } from './styles';
 
 export default function Main() {
+    api.get('appointments');
+
     return (
-        <Container>
-            <Title>Main component</Title>
+        <div>
+            <Title>Dashboard</Title>
             <p>Subtitle with HTML tag</p>
-        </Container>
+        </div>
     );
 }
