@@ -11,10 +11,7 @@ export default {
                 if (error) return callback(error);
 
                 // file format e.g. "45abf4f99b.png"
-                return callback(
-                    null,
-                    response.toString('hex') + extname(file.originalname)
-                );
+                return callback(null, response.toString('hex') + extname(file.originalname));
             });
         },
     }),
