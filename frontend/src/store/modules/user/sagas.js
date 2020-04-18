@@ -5,13 +5,19 @@ import api from '~/services/api';
 
 import { updateProfileSuccess, updateProfileFailure } from './actions';
 
+/**
+ * This saga will be called when action of type '@user/UPDATE_PROFILE_REQUEST' is fired.
+ *
+ * @param {Object} param0 object which contains the payload.
+ */
 export function* updateProfile({ payload }) {
     try {
-        const { name, email, ...rest } = payload.data;
+        const { name, email, avatar_id, ...rest } = payload.data;
 
         const profile = {
             name,
             email,
+            avatar_id,
             ...(rest.oldPassword ? rest : {}),
         };
 

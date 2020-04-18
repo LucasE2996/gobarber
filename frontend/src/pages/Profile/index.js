@@ -4,6 +4,7 @@ import { Form, Input } from '@rocketseat/unform';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
+import AvatarInput from './AvatarInput';
 import { Container } from './styles';
 
 export default function Profile() {
@@ -17,6 +18,9 @@ export default function Profile() {
     return (
         <Container>
             <Form initialData={profile} onSubmit={handleSubmit}>
+                {/* AvatarInput will use data from profile to get the avatar data */}
+                <AvatarInput name="avatar_id" />
+
                 <Input name="name" placeholder="Full Name" />
                 <Input
                     name="email"
