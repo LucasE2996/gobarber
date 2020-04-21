@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        // this configuration is to VSCode handle "~" path as baseUrl
+        "baseUrl": "src",
+        "paths": {
+            "~/*": ["*"]
+        }
+    },
+}
