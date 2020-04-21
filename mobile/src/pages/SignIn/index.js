@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, Image} from 'react-native';
+import {Image} from 'react-native';
 
 import Background from '~/Components/Background';
 import logo from '~/assets/logo.png';
@@ -13,7 +13,7 @@ import {
   SignLinkText,
 } from './styles';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   return (
     <Background>
       <Container>
@@ -35,7 +35,7 @@ const SignIn = () => {
 
           <SubmitButton onPress={() => {}}>Sign In</SubmitButton>
 
-          <SignLink>
+          <SignLink onPress={() => navigation.navigate('SignUp')}>
             <SignLinkText>Sign Up</SignLinkText>
           </SignLink>
         </Form>
