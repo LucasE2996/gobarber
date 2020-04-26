@@ -15,7 +15,7 @@ export function* signIn({payload}) {
 
     const {token, user} = response.data;
 
-    if (!user.provider) {
+    if (user.provider) {
       Alert.alert('Error', 'User cannot be a provider');
       yield put(signFailure());
       return;
@@ -40,7 +40,6 @@ export function* signUp({payload}) {
       name,
       email,
       password,
-      provider: true,
     });
 
     // histmory.push('/');
