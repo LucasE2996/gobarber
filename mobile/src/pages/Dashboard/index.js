@@ -1,13 +1,23 @@
 import React from 'react';
-import {Text} from 'react-native';
 
 import Background from '~/Components/Background';
-// import { Container } from './styles';
+import Appointment from '~/Components/Appointment';
+import {Container, Title, List} from './styles';
+
+const data = [1, 2, 3, 4, 5];
 
 export default function Dashboard() {
   return (
     <Background>
-      <Text>Dashboard page!</Text>
+      <Container>
+        <Title>Schedules</Title>
+
+        <List
+          data={data}
+          keuExtractor={item => String(item)}
+          renderItem={({item}) => <Appointment data={item} />}
+        />
+      </Container>
     </Background>
   );
 }
