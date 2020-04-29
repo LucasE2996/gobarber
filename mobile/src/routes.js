@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
+import {useSelector} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -8,7 +9,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
 import Dashboard from '~/pages/Dashboard';
-import User from '~/pages/User';
+import Profile from '~/pages/Profile';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,7 @@ const TabNavigatorOptions = {
 
       if (route.name === 'Dashboard') {
         iconName = 'event';
-      } else if (route.name === 'User') {
+      } else if (route.name === 'Profile') {
         iconName = focused ? 'person' : 'person-outline';
       }
 
@@ -49,7 +50,9 @@ const TabNavigatorOptions = {
 
 const Tab = createBottomTabNavigator();
 
-const Routes = (isSingnedIn = false) => {
+const Routes = () => {
+  const isSingnedIn = useSelector(state => state.auth.signed);
+
   return (
     <NavigationContainer>
       {isSingnedIn ? (
@@ -58,7 +61,7 @@ const Routes = (isSingnedIn = false) => {
           screenOptions={TabNavigatorOptions.screenOptions}
           tabBarOptions={TabNavigatorOptions.tabBarOptions}>
           <Tab.Screen name="Dashboard" component={Dashboard} />
-          <Tab.Screen name="User" component={User} />
+          <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>
       ) : (
         <Stack.Navigator

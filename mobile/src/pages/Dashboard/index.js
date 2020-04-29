@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
-import Background from '~/Components/Background';
-import Appointment from '~/Components/Appointment';
+import Background from '~/components/Background';
+import Appointment from '~/components/Appointment';
 import api from '~/services/api';
 
 import {Container, Title, List} from './styles';
@@ -41,7 +41,7 @@ export default function Dashboard() {
 
         <List
           data={appointments}
-          keuExtractor={item => item.id.toString(10)}
+          keyExtractor={item => item.id.toString(10)}
           renderItem={({item}) => (
             <Appointment onCancel={() => handleCancel(item.id)} data={item} />
           )}
