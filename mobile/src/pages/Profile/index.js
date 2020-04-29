@@ -1,9 +1,9 @@
-import React, {useState, useRef} from 'react';
-import {Button, Alert} from 'react-native';
+import React, {useState, useRef, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
 import Background from '~/components/Background';
 import {updateProfileRequest} from '~/store/modules/user/actions';
+import {signOut} from '~/store/modules/auth/actions';
 
 import {
   Container,
@@ -12,6 +12,7 @@ import {
   FormInput,
   SubmitButton,
   Separator,
+  LogoutButton,
 } from './styles';
 
 export default function Profile() {
@@ -29,6 +30,12 @@ export default function Profile() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  useEffect(() => {
+    setOldPassword('');
+    setPassword('');
+    setConfirmPassword('');
+  }, [profile]);
+
   function handleSubmit() {
     dispatch(
       updateProfileRequest({
@@ -39,6 +46,10 @@ export default function Profile() {
         confirmPassword,
       })
     );
+  }
+
+  function handleLogout() {
+    dispatch(signOut());
   }
 
   return (
@@ -102,7 +113,10 @@ export default function Profile() {
             onChangeText={setConfirmPassword}
           />
 
-          <SubmitButton onPress={handleSubmit}>Update profile</SubmitButton>
+          <SubmitButton dark onPress={handleSubmit}>
+            Update profile
+          </SubmitButton>
+          <LogoutButton onPress={handleLogout}>Logout</LogoutButton>
         </Form>
       </Container>
     </Background>

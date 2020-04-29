@@ -57,7 +57,7 @@ const SignIn = ({navigation}) => {
             onChangeText={setPassword}
           />
 
-          <SubmitButton loading={loading} onPress={handleSubmit}>
+          <SubmitButton dark loading={loading} onPress={handleSubmit}>
             Sign In
           </SubmitButton>
 

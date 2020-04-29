@@ -35,7 +35,7 @@ const TabNavigatorOptions = {
     showLabel: false,
     keyboardHidesTabBar: true,
     activeTintColor: '#fff',
-    inactiveTintColor: '#666',
+    inactiveTintColor: 'rgba(255,255,255,0.5)',
     style: {
       backgroundColor: 'transparent',
       borderTopWidth: 0,

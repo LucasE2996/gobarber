@@ -28,11 +28,16 @@ export const FormInput = styled(Input)`
 `;
 
 export const SubmitButton = styled(Button)`
-  margin-top: 5px;
+  margin-top: 20px;
 `;
 
 export const Separator = styled.View`
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
   margin: 20px 0 30px;
+`;
+
+export const LogoutButton = styled(Button)`
+  margin-top: 10px;
+  background-color: #f97171;
 `;
