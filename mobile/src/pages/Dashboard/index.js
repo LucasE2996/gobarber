@@ -6,18 +6,22 @@ import api from '~/services/api';
 
 import {Container, Title, List} from './styles';
 
-export default function Dashboard() {
+export default function Dashboard({navigation}) {
   const [appointments, setAppointments] = useState([]);
 
+  async function loadAppointments() {
+    const response = await api.get('appointments');
+
+    setAppointments(response.data);
+  }
+
   useEffect(() => {
-    async function loadAppointments() {
-      const response = await api.get('appointments');
+    const unsubscribe = navigation.addListener('focus', () => {
+      loadAppointments();
+    });
 
-      setAppointments(response.data);
-    }
-
-    loadAppointments();
-  }, []);
+    return unsubscribe;
+  }, [navigation]);
 
   async function handleCancel(id) {
     const response = await api.delete(`appointments/${id}`);
@@ -27,7 +31,7 @@ export default function Dashboard() {
         appointment.id === id
           ? {
               ...appointment,
-              canceled_at: response.data.cancelled_at,
+              cancelled_at: response.data.cancelled_at,
             }
           : appointment
       )

@@ -91,7 +91,11 @@ const Routes = () => {
           screenOptions={TabNavigatorOptions.screenOptions}
           tabBarOptions={TabNavigatorOptions.tabBarOptions}>
           <Tab.Screen name="Dashboard" component={Dashboard} />
-          <Tab.Screen name="New" component={New} />
+          <Tab.Screen
+            name="New"
+            component={New}
+            options={{unmountOnBlur: true}}
+          />
           <Tab.Screen name="Profile" component={Profile} />
         </Tab.Navigator>
       ) : (
