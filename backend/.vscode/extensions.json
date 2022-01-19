@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "dracula-theme.theme-dracula",
+        "vscode-icons-team.vscode-icons",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+    ]
+}
