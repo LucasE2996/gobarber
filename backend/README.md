@@ -44,7 +44,7 @@ docker exec -it my-postgres bash
 psql -U postgres
 
 # Create gobarber database:
-REATE DATABASE mytestdb;
+CREATE DATABASE mytestdb;
 ```
 
 > To get back to your terminal just run "\q" to exit psql and then "exit" to exit docker instance.
