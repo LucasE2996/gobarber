@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import {Image} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
-import Background from '~/Components/Background';
+import Background from '~/components/Background';
 import logo from '~/assets/logo.png';
 import {signUpRequest} from '~/store/modules/auth/actions';
 
@@ -69,7 +69,7 @@ export default function SignUp({navigation}) {
             onChangeText={setPassword}
           />
 
-          <SubmitButton loading={loading} onPress={handleSubmit}>
+          <SubmitButton dark loading={loading} onPress={handleSubmit}>
             Create account
           </SubmitButton>
 
