@@ -37,6 +37,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'warn',
         'react/jsx-props-no-spreading': 'off',
         'react/jsx-no-bind': 'off',
+        'default-param-last': 'off',
     },
     settings: {
         'import/resolver': {
