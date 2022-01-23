@@ -9,7 +9,7 @@ import { Container, Content, Profile } from './styles';
 
 export default function Header() {
     // useSelector gets the current redux state. This is used to get data from Reducers.
-    const profile = useSelector(state => state.user.profile);
+    const profile = useSelector((state) => state.user.profile);
 
     return (
         <Container>
