@@ -13,5 +13,5 @@ export const Container = styled(RectButton)`
 export const Text = styled.Text`
   font-weight: bold;
   font-size: 16px;
-  color: #666;
+  color: ${props => (props.dark ? '#666' : '#fff')};
 `;
