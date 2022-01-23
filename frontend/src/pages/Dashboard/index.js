@@ -39,7 +39,7 @@ export default function Main() {
 
             const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-            const data = range.map((hour) => {
+            const data = range.map(hour => {
                 // set time to 0 hour, 0 min and 0 sec, 0 milliseconds
                 const checkDate = setMilliseconds(
                     setSeconds(setMinutes(setHours(date, hour), 0), 0),
@@ -51,7 +51,7 @@ export default function Main() {
                 return {
                     time: `${hour}:00h`,
                     past: isBefore(compareDate, new Date()),
-                    appointment: response.data.find((a) =>
+                    appointment: response.data.find(a =>
                         isEqual(parseISO(a.date), compareDate)
                     ),
                 };
@@ -86,7 +86,7 @@ export default function Main() {
             </header>
 
             <ul>
-                {schedule.map((time) => (
+                {schedule.map(time => (
                     <Time
                         key={time.time}
                         past={time.past}

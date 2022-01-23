@@ -1,21 +1,21 @@
 import React from 'react';
+import { Switch } from 'react-router-dom';
 
 import Route from './Route';
 import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-import NotFound from '../pages/NotFound';
 
 export default function Routes() {
     return (
-        <Routes>
-            <Route path="/" exact element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/profile" element={<Profile />} isPrivate />
-            <Route path="/dashboard" element={<Dashboard />} isPrivate />
+        <Switch>
+            <Route path="/" exact component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/profile" component={Profile} isPrivate />
+            <Route path="/dashboard" component={Dashboard} isPrivate />
 
-            <Route path="/" element={<NotFound />} />
-        </Routes>
+            <Route path="/" component={() => <h1>404 NOT FOUND</h1>} />
+        </Switch>
     );
 }

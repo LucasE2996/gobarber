@@ -18,8 +18,7 @@ export default function Notifications() {
     const [notifications, setNotifications] = useState([]);
 
     const hasUnread = useMemo(
-        () =>
-            !!notifications.find((notification) => notification.read === false),
+        () => !!notifications.find(notification => notification.read === false),
         [notifications]
     );
 
@@ -27,7 +26,7 @@ export default function Notifications() {
         async function loadNotifications() {
             const response = await api.get('notification');
 
-            const data = response.data.map((notification) => ({
+            const data = response.data.map(notification => ({
                 ...notification,
                 timeDistance: formatDistance(
                     parseISO(notification.createdAt),
@@ -50,7 +49,7 @@ export default function Notifications() {
         await api.put(`notification/${id}`);
 
         setNotifications(
-            notifications.map((notification) =>
+            notifications.map(notification =>
                 notification._id === id
                     ? { ...notification, read: true }
                     : notification
@@ -66,7 +65,7 @@ export default function Notifications() {
 
             <NotificationList visible={visible}>
                 <Scroll>
-                    {notifications.map((notification) => (
+                    {notifications.map(notification => (
                         <Notification
                             key={notification._id}
                             unread={!notification.read}
